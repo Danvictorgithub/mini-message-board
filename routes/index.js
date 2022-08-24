@@ -14,7 +14,13 @@ const messages = [{
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {title:"Message Confession"});
+  res.render('index', {title:"Message Confession", messages:messages});
 });
-
+router.get('/new', function(req,res,next) {
+  res.render('new');
+});
+router.post('/new',function(req,res,next){
+  messages.push({...req.body,added:new Date()});
+  res.redirect('/');
+});
 module.exports = router;

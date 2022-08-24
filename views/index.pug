@@ -6,6 +6,13 @@ block content
       h1 Message Confession
       p Speech to Anything
     div.content
-      button.addMessage Add Message
+      a(href='/new')
+        button.addMessage Add Message
+      each message in messages
+        div.message 
+          h2=message.user
+          p=message.text
+          h5=message.added
     div.footer
+      h2 Copyright © 2022 DanvictorGithub
 
